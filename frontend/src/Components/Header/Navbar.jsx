@@ -69,7 +69,7 @@ const Navbar = () => {
 				
 				
 					<li className="nav-item">
-						<Link to="/login/dealer" className="nav-link" onClick={closeMenu}>
+						<Link to="/dealerprofile" className="nav-link" onClick={closeMenu}>
 							Became A Dealer
 						</Link>
 					</li>

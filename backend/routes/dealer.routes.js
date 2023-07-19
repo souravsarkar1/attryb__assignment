@@ -53,7 +53,6 @@ dealerRoutes.post('/login', async (req, res) => {
                 'masai',
                 { expiresIn: '7d' }
             );
-
             res.cookie('token', token, { httpOnly: true });
             console.log(req.cookies);
             res.status(200).json({ msg: 'Login Successful!!', token });

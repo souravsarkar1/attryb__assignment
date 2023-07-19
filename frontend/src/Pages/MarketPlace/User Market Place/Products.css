@@ -1,62 +1,84 @@
-/* Products.css */
-
-/* Center the search, buttons, and filter elements */
 .products-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Search bar styles */
+input[type="search"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Button styles */
+button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Filter dropdown styles */
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Title styles */
+.products-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Grid for displaying cards */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card styles */
+.products-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 1200px) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Style the search input and buttons */
-  input[type="search"] {
-    padding: 8px;
-    margin-right: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .products-container {
+    grid-template-columns: repeat(1, 1fr);
   }
-  
-  button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+  /* Adjust search bar and buttons layout for smaller screens */
+  .products-container input[type="search"],
+  .products-container button {
+    width: 100%;
+    max-width: 150px;
   }
-  
-  button:hover {
-    background-color: #0056b3;
+
+  /* Center align the search bar and buttons for smaller screens */
+  .products-container input[type="search"],
+  .products-container button,
+  .products-container select {
+    margin: 5px auto;
   }
-  
-  /* Style the select element (filter) */
-  select {
-    padding: 8px;
-    margin-top: 8px;
-  }
-  
-  /* Center the products grid and display two items per row */
-  .products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  /* Style each product card */
-  .products-grid .product-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    width: 300px; /* Adjust the width based on your design */
-  }
-  
-  .products-grid .product-card h3 {
-    margin: 0;
-  }
-  
-  .products-grid .product-card p {
-    margin: 8px 0;
-  }
-  
-  .products-title {
-    margin-top: 16px;
-  }
-  
+}

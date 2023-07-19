@@ -30,10 +30,10 @@ const AllRoutes = () => {
         <Route path='/addnewcar' element={<DealerPrivateRoute><AddNewCar /></DealerPrivateRoute>} />
         <Route path='/dealerprofile' element={<DealerPrivateRoute><DealerProfile /></DealerPrivateRoute>} />
         <Route path='/marketplace/:id' element={<UserPrivateRoute><Checkout/></UserPrivateRoute>}/>
-        <Route path='/payment' element={<PaymentOptions/>}/>
-        <Route path='/cash-on-delivery' element={<CashOnDelivery/>}/>
-        <Route path='/online-payment' element={<OnlinePayment/>}/>
-        <Route path='/update/:id' element={<UpdateCar/>}/>
+        <Route path='/payment' element={<UserPrivateRoute><PaymentOptions/></UserPrivateRoute>}/>
+        <Route path='/cash-on-delivery' element={<UserPrivateRoute><CashOnDelivery/></UserPrivateRoute>}/>
+        <Route path='/online-payment' element={<UserPrivateRoute><OnlinePayment/></UserPrivateRoute>}/>
+        <Route path='/update/:id' element={<DealerPrivateRoute><UpdateCar/></DealerPrivateRoute>}/>
         <Route path='/singlecar/:id' element={<SingleCar/>}/>
       </Routes>
     </div>

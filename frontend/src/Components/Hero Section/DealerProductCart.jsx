@@ -41,7 +41,7 @@ const dispatch = useDispatch();
       <button onClick={handleDelete} >Delete</button>
       <br />
       <br />
-      <button><Link to={`/update/${_id}`}>Update</Link></button>
+      <button><Link to={`/update/${_id}`} style={{ textDecoration: "none", color: "white" }}>Update</Link></button>
 
     </div>
   );

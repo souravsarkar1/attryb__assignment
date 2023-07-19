@@ -1,0 +1,51 @@
+/* DealerProfile.css */
+
+/* Container styles */
+.car-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  /* Card styles */
+  .dealer-product-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media screen and (max-width: 1200px) {
+    .car-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .car-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  /* Additional styles for the page layout */
+  h1 {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  h2 {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  /* Styling for the "Add a new Car" link */
+  a {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

@@ -8,6 +8,7 @@ const Products = () => {
     const dispatch = useDispatch();
     const initialData = useSelector((state) => state.carDataForMarketPlaceReducer.data);
     const [data, setData] = useState([...initialData]);
+    const [originalData, setOriginalData] = useState([...initialData]);
 
     const [search, setSearch] = useState('');
     useEffect(() => {
@@ -16,12 +17,12 @@ const Products = () => {
 
     const handleSearch = () => {
         // model_name
-        let newData = initialData.filter((el) => el.model_name === search);
+        let newData = originalData.filter((el) => el.model_name === search);
         setData([...newData]);
     };
 
     const handleReset = () => {
-        setData([...initialData]);
+        setData([...originalData]);
         setSearch('');
     };
 
@@ -51,11 +52,7 @@ const Products = () => {
                 <option value="desc">High To Low</option>
             </select>
             <h1 className="products-title">Available Cars</h1>
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: "repeat(3,1fr)",
-                gap: "30px"
-            }}>
+            <div className='products-container'>
 
                 {data?.map((car) => (
                     <ProductsCard key={car._id} {...car} />

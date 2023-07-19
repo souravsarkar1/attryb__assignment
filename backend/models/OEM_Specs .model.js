@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const OEM_SpecsSchema = mongoose.Schema({
-    "img": String,
+    "img" : String,
     "model_name": String,
     "year_of_model": Number,
     "list_price": Number,
@@ -11,7 +11,7 @@ const OEM_SpecsSchema = mongoose.Schema({
     "max_speed": Number,
     "dealer_name": String,
     "dealer_email": String,
-    "userID": String
+    "userID" : String
 }, {
     versionKey: false
 }

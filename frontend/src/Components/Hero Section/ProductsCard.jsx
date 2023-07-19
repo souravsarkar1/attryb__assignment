@@ -30,7 +30,7 @@ const ProductsCard = ({
       <button className="buy-button"><Link to={`/marketplace/${_id}`} style={{textDecoration:"none" , color:"white"}}>Buy Now</Link></button>
       <br />
       <br />
-      <button> <Link to={`/singlecar/${_id}`}>See More</Link> !</button>
+      <button> <Link to={`/singlecar/${_id}`} style={{ textDecoration: "none", color: "white" }}>See More</Link> !</button>
     </div>
   );
 };

@@ -13,7 +13,7 @@ moeSpecsRoutes.get('/', async (req, res) => {
         return res.status(400).json({ msg: "Somethings went to wrong" });
     }
 })
-moeSpecsRoutes.get("/data", async (req, res) => {
+moeSpecsRoutes.get("/data",auth ,async (req, res) => {
     try {
         const data = await OEMSpecsModel.find({ userID: req.body.userID });
         return res.json({ data });
@@ -30,6 +30,8 @@ moeSpecsRoutes.post('/add', auth, async (req, res) => {
         }
         const newData = new OEMSpecsModel(req.body);
         await newData.save();
+        const carID = newData._id;
+        res.cookie('carID', carID, { httpOnly: true });
         res.status(200).json({ msg: "new note is Added", newData });
     } catch (error) {
         console.log(error);
