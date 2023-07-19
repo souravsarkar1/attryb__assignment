@@ -1,0 +1,61 @@
+/* Home.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Define your Navbar and Footer styles here */
+  
+  .home {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Hero section styles */
+  .hero {
+    background-image: url('https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Featured cars section styles */
+  .featured-cars {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  /* Add more styles as needed */
+  

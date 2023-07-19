@@ -1,0 +1,44 @@
+/* AddNewCar.css */
+.add-new-car-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add-new-car-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-new-car-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .add-new-car-container form input[type='text'],
+  .add-new-car-container form input[type='number'],
+  .add-new-car-container form input[type='email'] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-new-car-container form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-new-car-container form button:hover {
+    background-color: #0056b3;
+  }
+  

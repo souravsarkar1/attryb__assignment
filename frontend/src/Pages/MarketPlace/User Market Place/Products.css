@@ -1,0 +1,62 @@
+/* Products.css */
+
+/* Center the search, buttons, and filter elements */
+.products-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style the search input and buttons */
+  input[type="search"] {
+    padding: 8px;
+    margin-right: 8px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the select element (filter) */
+  select {
+    padding: 8px;
+    margin-top: 8px;
+  }
+  
+  /* Center the products grid and display two items per row */
+  .products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Style each product card */
+  .products-grid .product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    width: 300px; /* Adjust the width based on your design */
+  }
+  
+  .products-grid .product-card h3 {
+    margin: 0;
+  }
+  
+  .products-grid .product-card p {
+    margin: 8px 0;
+  }
+  
+  .products-title {
+    margin-top: 16px;
+  }
+  

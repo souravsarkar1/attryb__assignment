@@ -1,0 +1,41 @@
+.payment-options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .payment-options {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+  }
+  
+  .payment-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .payment-option img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .payment-option:hover {
+    transform: scale(1.05);
+  }
+  
