@@ -18,7 +18,7 @@ marketPlaceInventoryRoutes.get('/', async (req, res) => {
 marketPlaceInventoryRoutes.post('/add', async (req, res) => {
     try {
         const registerCar = await MarketPlaceInventoryModel.findOne({ carID: req.body.carID });
-        console.log(registerCar);
+       // console.log(registerCar);
         if (registerCar) {
             res.status(200).json({ msg: "Car is already added" });
         } else {

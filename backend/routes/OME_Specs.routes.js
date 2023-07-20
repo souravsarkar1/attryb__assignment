@@ -34,7 +34,7 @@ moeSpecsRoutes.post('/add', auth, async (req, res) => {
         res.cookie('carID', carID, { httpOnly: true });
         res.status(200).json({ msg: "new note is Added", newData });
     } catch (error) {
-        console.log(error);
+       // console.log(error);
         return res.status(400).json({ msg: "Some Thing Went to Wring" });
     }
 }

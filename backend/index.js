@@ -24,10 +24,10 @@ app.use('/marketplace',marketPlaceInventoryRoutes)
 app.listen(process.env.port, async () => {
     try {
         await connection;
-        console.log(`port is running at ${process.env.port}`);
-        console.log("connected to db");
+   //     console.log(`port is running at ${process.env.port}`);
+      //  console.log("connected to db");
     } catch (error) {
-        console.log(error.message);
-        console.log("Sometthing went to wrong");
+     //   console.log(error.message);
+     //   console.log("Sometthing went to wrong");
     }
 })

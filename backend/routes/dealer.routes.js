@@ -54,8 +54,8 @@ dealerRoutes.post('/login', async (req, res) => {
                 { expiresIn: '7d' }
             );
             res.cookie('token', token, { httpOnly: true });
-            console.log(req.cookies);
-            res.status(200).json({ msg: 'Login Successful!!', token });
+           // console.log(req.cookies);
+            res.status(200).json({ msg: 'Login Successful!!', token, name : user.name });
         } else {
             res.status(401).json({ msg: 'Wrong Credentials' });
         }
