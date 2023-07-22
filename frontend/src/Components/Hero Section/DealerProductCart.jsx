@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProductsCard.css';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { deleteCarByDealer } from '../../Redux/DelarReducer/action';
+// import { useDispatch } from 'react-redux';
+// import { deleteCarByDealer } from '../../Redux/DelarReducer/action';
 const DealerProductCart = ({
   model_name,
   year_of_model,
@@ -14,14 +14,17 @@ const DealerProductCart = ({
   dealer_name,
   dealer_email,
   img,
-  _id
+  _id,
+  handleDelete
 }) => {
 
 
-const dispatch = useDispatch();
-    const handleDelete = ()=>{
-        dispatch(deleteCarByDealer(_id))
-    }
+  // const dispatch = useDispatch();
+  //     const handleDelete = ()=>{
+  //         dispatch(deleteCarByDealer(_id)).then((res)=>{
+
+  //         })
+  //     }
   return (
     <div className="products-card">
       <img src={img} alt={model_name} />
@@ -35,13 +38,11 @@ const dispatch = useDispatch();
       <p>Dealer Name: {dealer_name}</p>
       <p>Dealer Email: {dealer_email}</p>
       <br />
-      <button className="buy-button"><Link to={`/marketplace/${_id}`} style={{ textDecoration: "none", color: "white" }}>Buy Now</Link></button>
+      <br />
+      <button className="buy-button" onClick={() => handleDelete(_id)} >Delete</button>
       <br />
       <br />
-      <button onClick={handleDelete} >Delete</button>
-      <br />
-      <br />
-      <button><Link to={`/update/${_id}`} style={{ textDecoration: "none", color: "white" }}>Update</Link></button>
+      <Link to={`/update/${_id}`} style={{ textDecoration: "none", color: "white" }}> <button className="buy-button">Update Major Facts!</button></Link>
 
     </div>
   );

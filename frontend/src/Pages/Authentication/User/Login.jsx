@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../../Redux/UserAuth/action';
+import Cookies from 'js-cookie';
 const initialState = {
   email: '',
   password: '',
@@ -16,12 +17,16 @@ const LoginPage = () => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+useEffect(()=>{
+  Cookies.remove();
+  localStorage.clear();
+},[])
   const handleSubmit = (event) => {
     event.preventDefault();
     // Implement your login logic here
+    console.log('clicked');
     const payload = {email : formData.email, pass : formData.password};
-    console.log(payload);
+   // console.log(payload);
     dispatch(userLogin(payload)).then((res)=>{
       nanigate(location.state);
     })
@@ -31,7 +36,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>User Login</h2>
         <label>
           Email:
           <input

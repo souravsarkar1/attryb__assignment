@@ -32,7 +32,7 @@ moeSpecsRoutes.post('/add', auth, async (req, res) => {
         await newData.save();
         const carID = newData._id;
         res.cookie('carID', carID, { httpOnly: true });
-        res.status(200).json({ msg: "new note is Added", newData });
+        res.status(200).json({ msg: "new car is Added", newData });
     } catch (error) {
        // console.log(error);
         return res.status(400).json({ msg: "Some Thing Went to Wring" });
@@ -51,7 +51,7 @@ moeSpecsRoutes.delete("/delete/:carID", auth, async (req, res) => {
     try {
         const note = await OEMSpecsModel.findById(carID);
         if (!note) {
-            return res.status(404).json({ msg: "Note not found" });
+            return res.status(404).json({ msg: "car not found" });
         }
 
         const userIDinNoteDoc = note.userID;

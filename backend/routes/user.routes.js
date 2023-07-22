@@ -49,7 +49,7 @@ userRoute.post('/login', async (req, res) => {
                 expiresIn: '7d'
             });
             if (result) {
-                res.status(200).json({ msg: "Login Successful!!", token: token });
+                res.status(200).json({ msg: "Login Successful!!", token: token,name : user.name });
             }
             else {
                 res.status(200).json({ msg: "Wrong Crendintial" });

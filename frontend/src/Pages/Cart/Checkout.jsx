@@ -10,11 +10,11 @@ const Checkout = () => {
   useEffect(() => {
     axios.get(`https://attryb-skg1.onrender.com/cardata`)
       .then((res) => {
-        console.log(res.data);
+      //  console.log(res.data);
         setData(res.data.data)
       })
       .catch((err) => {
-        console.log(err);
+       // console.log(err);
       });
   }, []);
 
@@ -41,7 +41,7 @@ const Checkout = () => {
       <button className="buy-button"><Link to={`/payment`} style={{textDecoration:"none" , color:"white"}}>Order Now</Link></button>
       <br />
       <br />
-      <button>See More!</button>
+      <button className="buy-button" >See More!</button>
     </div>
   );
 };

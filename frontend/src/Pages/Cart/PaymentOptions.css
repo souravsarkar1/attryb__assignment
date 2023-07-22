@@ -1,41 +1,53 @@
+/* PaymentOptions.css */
+
 .payment-options-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .payment-options {
-    display: flex;
-    justify-content: space-around;
-    width: 400px;
-  }
-  
-  .payment-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-  }
-  
-  .payment-option img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-  }
-  
-  .payment-option:hover {
-    transform: scale(1.05);
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 350px;
+}
+
+.payment-option img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.payment-option span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.payment-option:hover {
+  background-color: #f8f8f8;
+  border-color: #aaa;
+  transform: translateY(-5px);
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+/* Optional: Adjust the styling as per your design preferences */

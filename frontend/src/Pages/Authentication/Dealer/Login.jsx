@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { dealerLogin } from '../../../Redux/DealerAuth/action';
+import Cookies from 'js-cookie';
 
 const initialState = {
   email: '',
@@ -17,16 +18,18 @@ const DealerLoginPage = () => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  
+  console.log(Cookies);
   const handleSubmit = (event) => {
     event.preventDefault();
     // Implement your login logic here
-    const payload = {email : formData.email, pass : formData.password};
-    console.log(payload);
-    dispatch(dealerLogin(payload)).then((res)=>{
+    const payload = { email: formData.email, pass: formData.password };
+    // console.log(payload);
+    dispatch(dealerLogin(payload)).then((res) => {
+
       navigate('/dealerprofile')
     })
-   // setFormData(initialState);
+    // setFormData(initialState);
   };
 
   return (

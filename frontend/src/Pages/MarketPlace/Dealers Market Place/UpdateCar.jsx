@@ -2,26 +2,27 @@ import React, { useState } from 'react';
 import './CarInfoPage.css'; // Create a CarInfoPage.css file for styling
 import { useDispatch } from 'react-redux';
 import { marketplaceAdd } from '../../../Redux/DelarReducer/action';
-import { useParams } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
+const initialData = {
+  totalKms: '',
+  majorScratches: '',
+  originalPaint: false,
+  numberofAccidentsReported: '',
+  numberofPreviousBuyers: '',
+  registrationPlace: '',
+}
 const UpdateCar = () => {
-    const dispatch = useDispatch();
-  const [carInfo, setCarInfo] = useState({
-    totalKms: '',
-    majorScratches: '',
-    originalPaint: false,
-    numberofAccidentsReported: '',
-    numberofPreviousBuyers: '',
-    registrationPlace: '',
-  });
-const {id} = useParams();
+  const dispatch = useDispatch();
+  const [carInfo, setCarInfo] = useState(initialData);
+  const { id } = useParams();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    
+
     let newValue = type === 'checkbox' ? e.target.checked : value;
 
     if (name === "totalKms" || name === "numberofAccidentsReported" || name === "numberofPreviousBuyers") {
-        newValue = +value;
+      newValue = +value;
     }
     setCarInfo({
       ...carInfo,
@@ -32,8 +33,12 @@ const {id} = useParams();
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add the logic to handle form submission here
-    console.log(carInfo);
-    dispatch(marketplaceAdd(carInfo,id));
+    // console.log(carInfo);
+    dispatch(marketplaceAdd(carInfo, id));
+    setCarInfo(initialData);
+    setTimeout(() => {
+      navigate("/dealerprofile")
+    }, 1500);
   };
 
   return (

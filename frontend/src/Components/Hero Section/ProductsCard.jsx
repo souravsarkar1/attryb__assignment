@@ -27,10 +27,10 @@ const ProductsCard = ({
       <p>List Price: {list_price}</p>
       <p>Dealer Name: {dealer_name}</p>
       <p>Dealer Email: {dealer_email}</p>
-      <button className="buy-button"><Link to={`/marketplace/${_id}`} style={{textDecoration:"none" , color:"white"}}>Buy Now</Link></button>
+      <Link to={`/marketplace/${_id}`} style={{textDecoration:"none" , color:"white"}}><button className="buy-button">Buy Now</button></Link>
       <br />
       <br />
-      <button> <Link to={`/singlecar/${_id}`} style={{ textDecoration: "none", color: "white" }}>See More</Link> !</button>
+      <Link to={`/singlecar/${_id}`} style={{ textDecoration: "none", color: "white" }}><button className="buy-button"> See More !</button></Link>
     </div>
   );
 };

@@ -16,6 +16,7 @@ import CashOnDelivery from '../Pages/Cart/CahsonDelivery'
 import OnlinePayment from '../Pages/Cart/OnlinePayment'
 import UpdateCar from '../Pages/MarketPlace/Dealers Market Place/UpdateCar'
 import SingleCar from '../Pages/MarketPlace/User Market Place/SingleCar'
+import LinkConverter from '../Components/Link Converter/LinkConverter'
 
 const AllRoutes = () => {
   return (
@@ -34,7 +35,8 @@ const AllRoutes = () => {
         <Route path='/cash-on-delivery' element={<UserPrivateRoute><CashOnDelivery/></UserPrivateRoute>}/>
         <Route path='/online-payment' element={<UserPrivateRoute><OnlinePayment/></UserPrivateRoute>}/>
         <Route path='/update/:id' element={<DealerPrivateRoute><UpdateCar/></DealerPrivateRoute>}/>
-        <Route path='/singlecar/:id' element={<SingleCar/>}/>
+        <Route path='/singlecar/:id' element={<UserPrivateRoute><SingleCar/></UserPrivateRoute>}/>
+        <Route path='/generatelink' element={<LinkConverter/>}/>
       </Routes>
     </div>
   )

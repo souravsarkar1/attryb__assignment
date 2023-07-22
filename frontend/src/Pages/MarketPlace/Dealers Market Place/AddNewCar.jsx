@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './AddNewCar.css';
 import { useDispatch } from 'react-redux';
 import { dealerAddCar } from '../../../Redux/DelarReducer/action';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 const initialState = {
   img: '',
   model_name: '',
@@ -15,6 +17,7 @@ const initialState = {
 const AddNewCar = () => {
   const [carData, setCarData] = useState(initialState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let { img, model_name, year_of_model, list_price, available_colors, mileage, power_bhp, max_speed } = carData;
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,15 +42,25 @@ const AddNewCar = () => {
     available_colors = available_colors[0].split(' ')
     const payload = { img, model_name, year_of_model, list_price, available_colors, mileage, power_bhp, max_speed }
 
-    console.log(payload);
+    //console.log(payload);
 
-    dispatch(dealerAddCar(payload));
+    dispatch(dealerAddCar(payload)).then(()=>{
+      setCarData(initialState);
+      alert(Cookies.get("dealerAddCarMsg"))
+      setTimeout(() => {
 
+         navigate('/dealerprofile')
+       }, 1500);
+    })
+    
+    
   };
 
   return (
     <div className="add-new-car-container">
+
       <h1>Add New Car</h1>
+      <h4><Link to={'/generatelink'}>Click Here To generate your Link</Link></h4>
       <form onSubmit={handleSubmit}>
         <label>
           Image URL:

@@ -1,30 +1,37 @@
 import axios from "axios";
 import { DEALERADDCARFAIL, DEALERADDCARREQUEST, DEALERADDCARSUCESSFUL, DEALERDELETECARFAIL, DEALERDELETECARREQUEST, DEALERDELETECARSUCESSFUL, DEALERFETCARFAIL, DEALERFETCARREQUEST, DEALERFETCARSUCESSFUL, DEALERGETDETEALSCARFAIL, DEALERGETDETEALSCARREQUEST, DEALERGETDETEALSCARSUCESSFUL, DEALERUPDATENEWVALUECARFAIL, DEALERUPDATENEWVALUECARREQUEST, DEALERUPDATENEWVALUECARSUCESSFUL } from "./actionTypes"
 import Cookies from "js-cookie";
-const token = Cookies.get('dealerToken');
-export const dealerAddCar = (data) => (dispatch) => {
+//import Cookies from "js-cookie";
 
+export const dealerAddCar = (data) => (dispatch) => {
+    let dealerAddCarMsg ;
+    const token = Cookies.get("dealerToken")
     dispatch({ type: DEALERADDCARREQUEST });
-    axios.post(`https://attryb-skg1.onrender.com/cardata/add`, data, {
+ return   axios.post(`https://attryb-skg1.onrender.com/cardata/add`, data, {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
         },
     }).then((res) => {
 
-        console.log(res);
+        console.log(res.data);
         dispatch({ type: DEALERADDCARSUCESSFUL });
+        dealerAddCarMsg = res.data.msg;
     }).catch((err) => {
         dispatch({ type: DEALERADDCARFAIL });
         console.log(err);
+        dealerAddCarMsg = err.response;
+    }).finally(()=>{
+        Cookies.set("dealerAddCarMsg",dealerAddCarMsg);
     })
 }
 
 export const dealerGetCars = () => (dispatch) => {
+    const token = Cookies.get("dealerToken")
     dispatch({ type: DEALERFETCARREQUEST });
 
     // Get the token from the cookie
-    const token = Cookies.get('dealerToken');
+   // const token = localStorage.getItem("dealerToken")
 
     // Set the Authorization header correctly with the "Bearer" keyword
     axios.get(`https://attryb-skg1.onrender.com/cardata/data`, {
@@ -34,7 +41,7 @@ export const dealerGetCars = () => (dispatch) => {
         },
     }).then((res) => {
         dispatch({ type: DEALERFETCARSUCESSFUL, payload: res.data.data });
-        console.log(res.data.data);
+      //  console.log(res.data.data);
     }).catch((err) => {
         dispatch({ type: DEALERFETCARFAIL });
     });
@@ -42,8 +49,8 @@ export const dealerGetCars = () => (dispatch) => {
 
 
 export const deleteCarByDealer = (id) => (dispatch) => {
-    const token = Cookies.get('dealerToken');
-
+  //  const token = localStorage.getItem("dealerToken")
+  const token = Cookies.get("dealerToken")
     dispatch({ type: DEALERDELETECARREQUEST });
     return axios.delete(`https://attryb-skg1.onrender.com/cardata/delete/${id}`, {
         headers: {
@@ -51,11 +58,11 @@ export const deleteCarByDealer = (id) => (dispatch) => {
             "Content-Type": "application/json",
         },
     }).then((res) => {
-        console.log(res);
+       // console.log(res);
         dispatch({ type: DEALERDELETECARSUCESSFUL });
     }).catch((err) => {
         dispatch({ type: DEALERDELETECARFAIL });
-        console.log(err);
+     //   console.log(err);
     })
 }
 
@@ -68,7 +75,7 @@ dispatch({type: DEALERUPDATENEWVALUECARREQUEST })
             "Content-Type": "application/json",
         },
     }).then((res)=>{
-        console.log(res.data);
+       // console.log(res.data);
         dispatch({type : DEALERUPDATENEWVALUECARSUCESSFUL});
     }).catch((err)=>{
         dispatch({type : DEALERUPDATENEWVALUECARFAIL});
@@ -83,10 +90,10 @@ export const marketplaceGetCar = (id)=>(dispatch)=>{
             "Content-Type": "application/json",
         },
     }).then((res)=>{
-        console.log(res.data.carsDeteals);
+       // console.log(res.data.carsDeteals);
         dispatch({type :DEALERGETDETEALSCARSUCESSFUL, payload : res.data.carsDeteals});
     }).catch((err)=>{
-        console.log(err);
+      //  console.log(err);
         dispatch({type : DEALERGETDETEALSCARFAIL})
     })
 }

@@ -1,18 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { marketplaceGetCar } from '../../../Redux/DelarReducer/action';
 import { useParams } from 'react-router-dom';
 
 const SingleCar = () => {
     const dispatch = useDispatch();
+    const [flag, setFlag] = useState(true);
     let data = useSelector(state => state.dealerReducer.detealsData);
     const { id } = useParams();
-
+    useEffect(() => {
+        setTimeout(() => {
+            setFlag(false)
+        }, 2000);
+    }, [])
     useEffect(() => {
         dispatch(marketplaceGetCar(id));
     }, [dispatch, id]);
 
-data = data[0];
+    data = data[0];
+    if (flag) {
+        return <h1>Loading...</h1>
+    }
     return (
         <div>
             <h1>Car Details</h1>

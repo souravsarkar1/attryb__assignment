@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './PaymentOptions.css';
 
 const PaymentOptions = () => {
+  const [flag, setFlag] = useState(true);
+  useEffect(()=>{
+    setTimeout(() => {
+      setFlag(false);
+    }, 2000);
+  },[])
+  if (flag) {
+    return <h1>Loading....</h1>
+  }
   return (
     <div className="payment-options-container">
       <h1>Choose Payment Method</h1>

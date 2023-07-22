@@ -1,0 +1,51 @@
+/* Add this CSS to your style file or component */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+  }
+  
+  input[type="submit"],
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.reset {
+    background-color: #dc3545;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .div input[type="text"] {
+    flex: 1;
+  }
+  
+  .div button {
+    margin-left: 10px;
+  }
+  
+  /* Optional: Add more styling to enhance the design */
+  

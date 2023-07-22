@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './OnlinePayment.css'; // Don't forget to create and import the OnlinePayment.css file for styling
 import { useNavigate } from 'react-router-dom';
 
@@ -6,19 +6,39 @@ const OnlinePayment = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const navigate = useNavigate();
-
+  const [flag, setFlag] = useState(true);
+  useEffect(()=>{
+    setTimeout(() => {
+      setFlag(false);
+    }, 2000);
+  },[])
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (cardNumber.length !== 16 || !isExpiryDateValid() || cvv.length !== 3) {
-      alert('Please enter valid payment details.');
+  
+    if (
+      cardNumber.length !== 16 ||
+      !isExpiryDateValid() ||
+      cvv.length !== 3 ||
+      phoneNumber.length !== 10
+    ) {
+      alert('Please enter valid payment details and phone number.');
       return;
     } else {
-      alert('Your payment was successful.');
-      navigate('/');
+      const enteredPin = prompt('Please enter your PIN:');
+      if (enteredPin === null) {
+        alert('Payment canceled.');
+      } else if (enteredPin.trim() === '1234') {
+        alert('Your payment was successful.');
+        navigate('/');
+      } else {
+        alert('Incorrect PIN. Payment failed.');
+      }
     }
   };
+  
 
   const isExpiryDateValid = () => {
     const currentYear = new Date().getFullYear();
@@ -29,7 +49,7 @@ const OnlinePayment = () => {
       return false;
     }
 
-    if (expiryYear > currentYear + 8) {
+    if (expiryYear >= currentYear + 4 || currentYear === expiryYear) {
       return false;
     }
 
@@ -39,7 +59,9 @@ const OnlinePayment = () => {
 
     return true;
   };
-
+  if (flag) {
+    return <h1>Loading....</h1>
+  }
   return (
     <div className="payment-page">
       <h1>Online Payment</h1>
@@ -76,6 +98,17 @@ const OnlinePayment = () => {
             placeholder="CVV"
             value={cvv}
             onChange={(e) => setCvv(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            placeholder="Enter your phone number"
           />
         </div>
         <button type="submit" className="pay-button">

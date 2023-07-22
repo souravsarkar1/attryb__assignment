@@ -5,7 +5,9 @@ import { USERLOGINFAIL, USERLOGINREQUEST, USERLOGINSUCESSFUL, USERSIGNUPFAIL, US
 const initilaSate = {
     isAuth: false,
     isError: false,
-    token: ""
+    token: "",
+    isExist : '',
+    userMsg : ''
 }
 
 export const reducer = (state = initilaSate, { type, payload }) => {
@@ -19,9 +21,9 @@ export const reducer = (state = initilaSate, { type, payload }) => {
         case USERSIGNUPREQUEST:
             return { ...state, isLoading: true };
         case USERSIGNUPSUCESSFUL:
-            return { ...state, isLoading: false };
+            return { ...state, isLoading: false,userMsg : payload  };
         case USERSIGNUPFAIL:
-            return { ...state, isLoading: false, isError: true };
+            return { ...state, isLoading: false,isExist : payload, isError: true };
 
         default:
             return state;

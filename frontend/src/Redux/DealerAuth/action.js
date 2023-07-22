@@ -4,24 +4,30 @@ import { DEALERLOGINFAIL, DEALERLOGINREQUEST, DEALERLOGINSUCESSFUL, DEALERSIGNUP
 
 export const dealerLogin = (data) => (dispatch) => {
     dispatch({ type: DEALERLOGINREQUEST });
-   return axios.post(`https://attryb-skg1.onrender.com/dealer/login`, data).then((res) => {
+    return axios.post(`https://attryb-skg1.onrender.com/dealer/login`, data).then((res) => {
 
-        console.log(res.data.token);
+        console.log(res.data);
         Cookies.set('dealerToken', res.data.token, { expires: 7 });
-        console.log(Cookies.get('dealerToken'));
-        dispatch({ type: DEALERLOGINSUCESSFUL, payload: res.data.token })
+       // localStorage.setItem("dealerToken", res.data.token);
+        //  console.log(Cookies.get('dealerToken'));
+        dispatch({ type: DEALERLOGINSUCESSFUL, payload: res.data.name })
     }).catch((err) => {
         dispatch({ type: DEALERLOGINFAIL });
-        console.log(err);
+        // console.log(err);
     })
 }
 export const dealerSignup = (data) => (dispatch) => {
+    let dealerMsg;
     dispatch({ type: DEALERSIGNUPREQUEST });
-   return axios.post(`https://attryb-skg1.onrender.com/dealer/register`, data).then((res) => {
-        console.log(res.data);
+    return axios.post(`https://attryb-skg1.onrender.com/dealer/register`, data).then((res) => {
+        // console.log(res.data);
+        dealerMsg = res.data.msg;
         dispatch({ type: DEALERSIGNUPSUCESSFUL })
     }).catch((err) => {
         dispatch({ type: DEALERSIGNUPFAIL });
-        console.log(err);
+        //  console.log(err);
+        dealerMsg = err.response.data.error;
+    }).finally(() => {
+        Cookies.set("dealerMsg", dealerMsg);
     })
 }

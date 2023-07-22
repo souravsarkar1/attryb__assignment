@@ -14,7 +14,7 @@ const Home = () => {
                         <div className="hero-content">
                             <h1>Welcome to Second Hand Cars</h1>
                             <p>Find your dream car at a fraction of the price.</p>
-                            <Link to="/cars" className="btn btn-primary">
+                            <Link to="/marketplace" className="btn btn-primary">
                                 Browse Cars
                             </Link>
                         </div>
