@@ -17,6 +17,7 @@ import OnlinePayment from '../Pages/Cart/OnlinePayment'
 import UpdateCar from '../Pages/MarketPlace/Dealers Market Place/UpdateCar'
 import SingleCar from '../Pages/MarketPlace/User Market Place/SingleCar'
 import LinkConverter from '../Components/Link Converter/LinkConverter'
+import UpdateMainCar from '../Pages/MarketPlace/Dealers Market Place/UpdateMainCar'
 
 const AllRoutes = () => {
   return (
@@ -30,13 +31,14 @@ const AllRoutes = () => {
         <Route path='marketplace' element={<Products />} />
         <Route path='/addnewcar' element={<DealerPrivateRoute><AddNewCar /></DealerPrivateRoute>} />
         <Route path='/dealerprofile' element={<DealerPrivateRoute><DealerProfile /></DealerPrivateRoute>} />
-        <Route path='/marketplace/:id' element={<UserPrivateRoute><Checkout/></UserPrivateRoute>}/>
-        <Route path='/payment' element={<UserPrivateRoute><PaymentOptions/></UserPrivateRoute>}/>
-        <Route path='/cash-on-delivery' element={<UserPrivateRoute><CashOnDelivery/></UserPrivateRoute>}/>
-        <Route path='/online-payment' element={<UserPrivateRoute><OnlinePayment/></UserPrivateRoute>}/>
-        <Route path='/update/:id' element={<DealerPrivateRoute><UpdateCar/></DealerPrivateRoute>}/>
-        <Route path='/singlecar/:id' element={<UserPrivateRoute><SingleCar/></UserPrivateRoute>}/>
-        <Route path='/generatelink' element={<LinkConverter/>}/>
+        <Route path='/marketplace/:id' element={<UserPrivateRoute><Checkout /></UserPrivateRoute>} />
+        <Route path='/payment' element={<UserPrivateRoute><PaymentOptions /></UserPrivateRoute>} />
+        <Route path='/cash-on-delivery' element={<UserPrivateRoute><CashOnDelivery /></UserPrivateRoute>} />
+        <Route path='/online-payment' element={<UserPrivateRoute><OnlinePayment /></UserPrivateRoute>} />
+        <Route path='/update/:id' element={<DealerPrivateRoute><UpdateCar /></DealerPrivateRoute>} />
+        <Route path='/singlecar/:id' element={<UserPrivateRoute><SingleCar /></UserPrivateRoute>} />
+        <Route path='/generatelink' element={<LinkConverter />} />
+        <Route path='/updatemaincar/:id' element={<DealerPrivateRoute><UpdateMainCar /></DealerPrivateRoute>} />
       </Routes>
     </div>
   )

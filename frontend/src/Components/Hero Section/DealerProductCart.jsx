@@ -43,6 +43,9 @@ const DealerProductCart = ({
       <br />
       <br />
       <Link to={`/update/${_id}`} style={{ textDecoration: "none", color: "white" }}> <button className="buy-button">Update Major Facts!</button></Link>
+      <br />
+      <br />
+      <Link to={`/updatemaincar/${_id}`} style={{ textDecoration: "none", color: "white" }}> <button className="buy-button">Update Car!</button></Link>
 
     </div>
   );
